@@ -1,7 +1,8 @@
-package ir.alizeyn.products
+package ir.alizeyn.products.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import ir.alizeyn.products.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
