@@ -10,6 +10,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import dagger.hilt.android.AndroidEntryPoint
 import ir.alizeyn.products.R
+import ir.alizeyn.products.core.ext.gone
 import ir.alizeyn.products.core.ext.visible
 import ir.alizeyn.products.core.state.StateData
 import ir.alizeyn.products.databinding.FragmentProductsBinding
@@ -38,6 +39,7 @@ class ProductsFragment : Fragment() {
                     binding.loadingGroup.visible()
                 }
                 is StateData.Success -> {
+                    binding.loadingGroup.gone()
                     Log.i("TAG", "SUCCESS")
                     it.data?.forEach {
                         Log.i("TAG", "onCreateView: ${it.title}")
