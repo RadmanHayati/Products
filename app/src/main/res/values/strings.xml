@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Products</string>
+    <string name="loading_text">Produkte werden geladen...</string>
 </resources>

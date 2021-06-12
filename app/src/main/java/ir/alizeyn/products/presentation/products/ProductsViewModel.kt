@@ -1,32 +1,39 @@
 package ir.alizeyn.products.presentation.products
 
-import androidx.lifecycle.LifecycleObserver
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.LiveData
 import dagger.hilt.android.lifecycle.HiltViewModel
+import ir.alizeyn.products.core.base.BaseViewModel
+import ir.alizeyn.products.core.state.StateData
+import ir.alizeyn.products.core.state.StateMutableLiveData
 import ir.alizeyn.products.data.network.product.repo.ProductsRepository
 import ir.alizeyn.products.domain.product.model.Product
+import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class ProductsViewModel @Inject constructor(
     private val repository: ProductsRepository
-) : ViewModel(), LifecycleObserver {
+) : BaseViewModel() {
 
-    //todo fix visibility of livedata
-    val products: MutableLiveData<List<Product>> = MutableLiveData()
+    override val coroutineExceptionHandler = CoroutineExceptionHandler { _, throwable ->
+        _products.setError(throwable)
+    }
+
+    private val _products = StateMutableLiveData<List<Product>>()
+
+    val products: LiveData<StateData<List<Product>>>
+        get() = _products
 
     init {
         getProducts()
     }
 
-    public fun getProducts() = viewModelScope.launch {
+    fun getProducts() = launch {
+        _products.setLoading()
         repository.getProducts()
             .collect {
-                products.value = it
+                _products.setSuccess(it)
             }
     }
 }

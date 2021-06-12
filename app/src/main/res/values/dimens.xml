@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <dimen name="minMargin">4dp</dimen>
+    <dimen name="standardMargin">8dp</dimen>
+    <dimen name="MidMargin">12dp</dimen>
+
+    <dimen name="minPadding">4dp</dimen>
+    <dimen name="standardPadding">8dp</dimen>
+    <dimen name="MidPadding">12dp</dimen>
+</resources>

@@ -10,6 +10,8 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import dagger.hilt.android.AndroidEntryPoint
 import ir.alizeyn.products.R
+import ir.alizeyn.products.core.ext.visible
+import ir.alizeyn.products.core.state.StateData
 import ir.alizeyn.products.databinding.FragmentProductsBinding
 
 
@@ -31,8 +33,19 @@ class ProductsFragment : Fragment() {
         }
 
         viewModel.products.observe(viewLifecycleOwner, {
-            it.forEach {
-                Log.i("PRODUCTS_DEBUG", "onCreateView:--> ${it.title}")
+            when (it) {
+                is StateData.Loading -> {
+                    binding.loadingGroup.visible()
+                }
+                is StateData.Success -> {
+                    Log.i("TAG", "SUCCESS")
+                    it.data?.forEach {
+                        Log.i("TAG", "onCreateView: ${it.title}")
+                    }
+                }
+                is StateData.Error -> {
+                    Log.i("TAG", "ERROR")
+                }
             }
         })
         return binding.root
