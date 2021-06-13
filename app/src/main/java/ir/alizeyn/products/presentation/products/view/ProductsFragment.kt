@@ -16,7 +16,7 @@ import ir.alizeyn.products.databinding.FragmentProductsBinding
 import ir.alizeyn.products.presentation.products.viewmodel.ProductsViewModel
 import jp.wasabeef.recyclerview.adapters.AlphaInAnimationAdapter
 
-const val PRODUCTS_SPAN_COUNT: Int = 2
+const val PRODUCTS_SPAN_COUNT = 2
 
 @AndroidEntryPoint
 class ProductsFragment : Fragment() {
@@ -35,6 +35,7 @@ class ProductsFragment : Fragment() {
         setupRecyclerView()
 
         viewModel.products.observe(viewLifecycleOwner, { productStateData ->
+            Log.i("TAG", "onCreateView: Products data emitted")
             when (productStateData) {
                 is StateData.Loading -> {
                     binding.loadingGroup.visible()
@@ -43,6 +44,7 @@ class ProductsFragment : Fragment() {
                     binding.loadingGroup.gone()
                     productStateData.data?.let {
                         adapter.updateData(it)
+                        binding.productsRecyclerView.scheduleLayoutAnimation()
                     }
                 }
                 is StateData.Error -> {

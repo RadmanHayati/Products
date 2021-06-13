@@ -1,5 +1,6 @@
 package ir.alizeyn.products.presentation.products.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import dagger.hilt.android.lifecycle.HiltViewModel
 import ir.alizeyn.products.core.base.BaseViewModel
@@ -34,6 +35,7 @@ class ProductsViewModel @Inject constructor(
     }
 
     fun getProducts() = launch {
+        Log.i("TAG", "getProducts: requesting ...")
         _products.setLoading()
         repository.getProducts()
             .map {
