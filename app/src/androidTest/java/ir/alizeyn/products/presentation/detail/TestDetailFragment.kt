@@ -1,21 +1,20 @@
-package ir.alizeyn.products.presentation.products.view
+package ir.alizeyn.products.presentation.detail
 
+import android.os.Bundle
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.test.espresso.Espresso
 import androidx.test.espresso.action.ViewActions
+import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.MediumTest
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
 import dagger.hilt.android.testing.UninstallModules
 import ir.alizeyn.products.R
-import ir.alizeyn.products.data.network.api.getFirstProduct
 import ir.alizeyn.products.data.network.di.NetworkModule
-import ir.alizeyn.products.data.network.product.repo.ProductMapper
-import ir.alizeyn.products.presentation.products.mapper.ProductUiMapper
+import ir.alizeyn.products.presentation.products.model.ProductUiModel
 import ir.alizeyn.products.utils.launchFragmentInHiltContainer
-import ir.alizeyn.products.utils.withRecyclerView
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -26,7 +25,7 @@ import org.mockito.Mockito
 @MediumTest
 @UninstallModules(NetworkModule::class)
 @HiltAndroidTest
-class TestProductsFragment {
+class TestDetailFragment {
 
     @get:Rule
     var hiltRule = HiltAndroidRule(this)
@@ -37,20 +36,22 @@ class TestProductsFragment {
     }
 
     @Test
-    fun testClickOnProductToShowDetails() {
+    fun testBackToProductsFragment() {
 
         val navController = Mockito.mock(NavController::class.java)
 
-        launchFragmentInHiltContainer<ProductsFragment> {
+        val firstProductUiModelClicked = ProductUiModel(
+            "", "", "", "", "", ""
+        )
+        launchFragmentInHiltContainer<DetailFragment>(
+            fragmentArgs = Bundle().apply {
+                putParcelable("product", firstProductUiModelClicked)
+            }) {
             Navigation.setViewNavController(requireView(), navController)
         }
-
-        Espresso.onView(withRecyclerView(R.id.productsRecyclerView).atPosition(0))
+        Espresso.onView(ViewMatchers.withId(R.id.close))
             .perform(ViewActions.click())
-        val networkProduct = getFirstProduct()
-        val product = ProductMapper().map(networkProduct)
-        val uiModelProduct = ProductUiMapper().map(product)
-        val action = ProductsFragmentDirections.actionProductsFragmentToDetailFragment(uiModelProduct)
-        Mockito.verify(navController).navigate(action)
+
+        Mockito.verify(navController).popBackStack()
     }
 }
