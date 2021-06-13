@@ -10,7 +10,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="300dp"
         android:paddingBottom="@dimen/maxPadding">
 
         <ImageView
@@ -34,10 +34,9 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/productPrice"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/productImageView"
-            app:layout_constraintVertical_chainStyle="spread_inside"
+            app:layout_constraintVertical_bias="0.0"
             tools:text="Apfel Elstar aus Österreich" />
 
         <TextView
@@ -51,7 +50,6 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/productTitle"
             tools:text="2,49 €" />
 
         <TextView
