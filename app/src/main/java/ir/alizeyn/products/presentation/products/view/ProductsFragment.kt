@@ -1,4 +1,4 @@
-package ir.alizeyn.products.presentation.products
+package ir.alizeyn.products.presentation.products.view
 
 import android.os.Bundle
 import android.util.Log
@@ -13,6 +13,7 @@ import ir.alizeyn.products.core.ext.gone
 import ir.alizeyn.products.core.ext.visible
 import ir.alizeyn.products.core.state.StateData
 import ir.alizeyn.products.databinding.FragmentProductsBinding
+import ir.alizeyn.products.presentation.products.viewmodel.ProductsViewModel
 
 const val PRODUCTS_SPAN_COUNT: Int = 2
 

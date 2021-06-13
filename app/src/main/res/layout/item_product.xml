@@ -59,27 +59,11 @@
             android:id="@+id/productStrikePrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="2dp"
-            android:textSize="@dimen/smallTextSize"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/productStrikePriceTitle"
-            tools:text="@string/strikePriceTools" />
-
-        <TextView
-            android:id="@+id/productStrikePriceTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/standardMargin"
-            android:text="statt"
             android:textSize="@dimen/smallTextSize"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/productPrice" />
-
-        <androidx.constraintlayout.widget.Group
-            android:id="@+id/strikePriceGroup"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:constraint_referenced_ids="productStrikePriceTitle,productStrikePrice" />
+            app:layout_constraintStart_toEndOf="@+id/productPrice"
+            tools:text="@string/strikePriceTools" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>

@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/productsFragment"
-        android:name="ir.alizeyn.products.presentation.products.ProductsFragment"
+        android:name="ir.alizeyn.products.presentation.products.view.ProductsFragment"
         android:label="fragment_products"
         tools:layout="@layout/fragment_products" >
         <action

@@ -1,4 +1,4 @@
-package ir.alizeyn.products.presentation.products
+package ir.alizeyn.products.presentation.products.view
 
 import android.util.Log
 import android.view.LayoutInflater
@@ -7,14 +7,13 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import ir.alizeyn.products.core.ext.invisible
-import ir.alizeyn.products.core.ext.strike
 import ir.alizeyn.products.core.ext.visible
 import ir.alizeyn.products.databinding.ItemProductBinding
-import ir.alizeyn.products.domain.product.model.Product
+import ir.alizeyn.products.presentation.products.model.ProductUiModel
 
 class ProductAdapter : RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() {
 
-    private var data: List<Product> = emptyList()
+    private var data: List<ProductUiModel> = emptyList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductViewHolder {
         return ProductViewHolder.from(parent)
@@ -28,7 +27,7 @@ class ProductAdapter : RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() 
         return data.size
     }
 
-    fun updateData(data: List<Product>) {
+    fun updateData(data: List<ProductUiModel>) {
         this@ProductAdapter.data = data
         notifyDataSetChanged()
     }
@@ -36,14 +35,13 @@ class ProductAdapter : RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() 
     class ProductViewHolder(private val binding: ItemProductBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(product: Product) {
+        fun bind(product: ProductUiModel) {
             binding.productTitle.text = product.title
             //todo fix formatting
-            binding.productPrice.text = product.price.toString()
-            binding.strikePriceGroup.invisible()
+            binding.productPrice.text = product.price
+            binding.productStrikePrice.invisible()
             product.strikePrice?.let {
-                binding.strikePriceGroup.visible()
-                binding.productStrikePrice.strike()
+                binding.productStrikePrice.visible()
                 binding.productStrikePrice.text = it.toString()
             }
             Log.i("TAG", "bind: imageUrl is ${product.imageUrl}")
