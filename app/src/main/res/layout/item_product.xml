@@ -27,15 +27,18 @@
             android:id="@+id/productTitle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="@dimen/maxMargin"
             android:layout_marginTop="@dimen/maxMargin"
             android:layout_marginEnd="@dimen/maxMargin"
             android:textColor="@color/black"
-            android:textSize="18sp"
+            android:textSize="@dimen/largeTextSize"
             android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/productPrice"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/productImageView"
+            app:layout_constraintVertical_chainStyle="spread_inside"
             tools:text="Apfel Elstar aus Österreich" />
 
         <TextView
@@ -43,8 +46,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/maxMargin"
-            android:layout_marginTop="8dp"
-            android:textSize="18sp"
+            android:layout_marginTop="@dimen/standardMargin"
+            android:textSize="@dimen/normalTextSize"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintHorizontal_chainStyle="packed"
@@ -57,6 +60,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="2dp"
+            android:textSize="@dimen/smallTextSize"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/productStrikePriceTitle"
             tools:text="@string/strikePriceTools" />
@@ -65,8 +69,9 @@
             android:id="@+id/productStrikePriceTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="@dimen/standardMargin"
             android:text="statt"
+            android:textSize="@dimen/smallTextSize"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/productPrice" />
 

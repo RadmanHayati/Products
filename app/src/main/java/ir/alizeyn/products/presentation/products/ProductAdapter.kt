@@ -6,7 +6,9 @@ import android.view.ViewGroup
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
-import ir.alizeyn.products.core.ext.gone
+import ir.alizeyn.products.core.ext.invisible
+import ir.alizeyn.products.core.ext.strike
+import ir.alizeyn.products.core.ext.visible
 import ir.alizeyn.products.databinding.ItemProductBinding
 import ir.alizeyn.products.domain.product.model.Product
 
@@ -38,12 +40,12 @@ class ProductAdapter : RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() 
             binding.productTitle.text = product.title
             //todo fix formatting
             binding.productPrice.text = product.price.toString()
-            binding.strikePriceGroup.gone()
-//            product.strikePrice?.let {
-//                binding.strikePriceGroup.visible()
-//                binding.productStrikePrice.strike()
-//                binding.productStrikePrice.text = it.toString()
-//            }
+            binding.strikePriceGroup.invisible()
+            product.strikePrice?.let {
+                binding.strikePriceGroup.visible()
+                binding.productStrikePrice.strike()
+                binding.productStrikePrice.text = it.toString()
+            }
             Log.i("TAG", "bind: imageUrl is ${product.imageUrl}")
             binding.productImageView.load(product.imageUrl.replace("http", "https"))
             binding.root.setOnClickListener {

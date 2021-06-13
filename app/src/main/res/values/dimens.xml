@@ -11,4 +11,8 @@
     <dimen name="standardCardElevation">8dp</dimen>
     <dimen name="standardCardRadius">8dp</dimen>
     <dimen name="maxCardRadius">16dp</dimen>
+
+    <dimen name="largeTextSize">18sp</dimen>
+    <dimen name="normalTextSize">16sp</dimen>
+    <dimen name="smallTextSize">12sp</dimen>
 </resources>
