@@ -4,7 +4,7 @@ import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import ir.alizeyn.products.data.network.common.Mapper
+import ir.alizeyn.products.data.network.mapper.Mapper
 import ir.alizeyn.products.data.network.product.model.NetworkProduct
 import ir.alizeyn.products.data.network.product.repo.ProductMapper
 import ir.alizeyn.products.data.network.product.repo.ProductsRepository

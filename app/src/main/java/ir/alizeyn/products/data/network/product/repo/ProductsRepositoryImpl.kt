@@ -1,7 +1,7 @@
 package ir.alizeyn.products.data.network.product.repo
 
 import ir.alizeyn.products.data.network.api.ProductsApiService
-import ir.alizeyn.products.data.network.common.Mapper
+import ir.alizeyn.products.data.network.mapper.Mapper
 import ir.alizeyn.products.data.network.product.model.NetworkProduct
 import ir.alizeyn.products.domain.product.model.Product
 import kotlinx.coroutines.Dispatchers

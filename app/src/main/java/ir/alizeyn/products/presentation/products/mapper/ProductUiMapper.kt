@@ -1,6 +1,6 @@
 package ir.alizeyn.products.presentation.products.mapper
 
-import ir.alizeyn.products.data.network.common.Mapper
+import ir.alizeyn.products.data.network.mapper.Mapper
 import ir.alizeyn.products.domain.product.model.Product
 import ir.alizeyn.products.presentation.products.model.ProductUiModel
 import java.math.BigDecimal

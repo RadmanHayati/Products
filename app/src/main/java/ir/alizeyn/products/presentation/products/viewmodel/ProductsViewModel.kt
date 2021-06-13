@@ -5,7 +5,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import ir.alizeyn.products.core.base.BaseViewModel
 import ir.alizeyn.products.core.state.StateData
 import ir.alizeyn.products.core.state.StateMutableLiveData
-import ir.alizeyn.products.data.network.common.Mapper
+import ir.alizeyn.products.data.network.mapper.Mapper
 import ir.alizeyn.products.data.network.product.repo.ProductsRepository
 import ir.alizeyn.products.domain.product.model.Product
 import ir.alizeyn.products.presentation.products.model.ProductUiModel
