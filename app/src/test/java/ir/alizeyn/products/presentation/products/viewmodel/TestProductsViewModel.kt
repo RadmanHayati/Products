@@ -36,7 +36,7 @@ class TestProductsViewModel {
     private lateinit var repository: ProductsRepository
 
     private val product = Product(
-        "", "", "", BigDecimal(1.12), null, ""
+        "", "", "", BigDecimal.valueOf(1.12), null, ""
     )
     private val uiProduct = ProductUiModel(
         "", "", "", "1,12 €", null, ""

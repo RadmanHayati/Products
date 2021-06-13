@@ -41,7 +41,7 @@ class TestProductRepository {
                 "0a",
                 "Tomato",
                 "imageUrl",
-                BigDecimal(1.31),
+                BigDecimal.valueOf(1.31),
                 null,
                 "description"
             )
@@ -50,7 +50,7 @@ class TestProductRepository {
             "0a",
             "Tomato",
             "imageUrl",
-            BigDecimal(1.31),
+            BigDecimal.valueOf(1.31),
             null,
             "description"
         )
