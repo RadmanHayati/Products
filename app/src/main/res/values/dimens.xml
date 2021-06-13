@@ -4,6 +4,7 @@
     <dimen name="standardMargin">8dp</dimen>
     <dimen name="maxMargin">16dp</dimen>
 
+    <dimen name="slimPadding">2dp</dimen>
     <dimen name="minPadding">4dp</dimen>
     <dimen name="standardPadding">8dp</dimen>
     <dimen name="maxPadding">16dp</dimen>

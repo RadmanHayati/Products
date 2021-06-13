@@ -11,7 +11,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingBottom="@dimen/standardPadding">
+        android:paddingBottom="@dimen/maxPadding">
 
         <ImageView
             android:id="@+id/productImageView"
@@ -57,16 +57,35 @@
             tools:text="2,49 €" />
 
         <TextView
+            android:id="@+id/productStrikePriceTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:paddingEnd="@dimen/slimPadding"
+            android:text="@string/strikePriceTitle"
+            android:textColor="@color/textLight"
+            android:textSize="@dimen/smallTextSize"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/productPrice"
+            tools:ignore="RtlSymmetry" />
+
+        <TextView
             android:id="@+id/productStrikePrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/standardMargin"
             android:textColor="@color/textLight"
-            android:textStyle="bold"
             android:textSize="@dimen/smallTextSize"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/productPrice"
+            app:layout_constraintStart_toEndOf="@+id/productStrikePriceTitle"
             tools:text="@string/strikePriceTools" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/productStrikePriceGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:constraint_referenced_ids="productStrikePriceTitle,productStrikePrice" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>
