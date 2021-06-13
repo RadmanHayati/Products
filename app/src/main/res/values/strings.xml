@@ -2,5 +2,6 @@
     <string name="app_name">Products</string>
     <string name="loading_text">Produkte werden geladen...</string>
 
-    <string name="strikePriceTools">statt <strike>1,25 €</strike></string>
+    <string name="strikePriceTools"><strike>1,25 €</strike></string>
+    <string name="product_image">Product Image</string>
 </resources>

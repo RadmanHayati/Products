@@ -2,19 +2,22 @@
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:cardCornerRadius="@dimen/standardCardRadius"
+    android:layout_margin="@dimen/standardMargin"
+    app:cardCornerRadius="@dimen/maxCardRadius"
     app:cardElevation="@dimen/standardCardElevation">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:paddingBottom="@dimen/standardPadding">
 
         <ImageView
             android:id="@+id/productImageView"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:contentDescription="@string/product_image"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -22,11 +25,11 @@
 
         <TextView
             android:id="@+id/productTitle"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/MaxMargin"
-            android:layout_marginTop="@dimen/MaxMargin"
-            android:layout_marginEnd="@dimen/MaxMargin"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="@dimen/maxMargin"
+            android:layout_marginEnd="@dimen/maxMargin"
             android:textColor="@color/black"
             android:textSize="18sp"
             android:textStyle="bold"
@@ -39,9 +42,11 @@
             android:id="@+id/productPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/maxMargin"
+            android:layout_marginTop="8dp"
+            android:textSize="18sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@+id/productStrikePrice"
-            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/productTitle"
@@ -51,11 +56,25 @@
             android:id="@+id/productStrikePrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textStyle=""
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/productPrice"
-            app:layout_constraintTop_toBottomOf="@+id/productTitle"
+            android:layout_marginStart="2dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/productStrikePriceTitle"
             tools:text="@string/strikePriceTools" />
+
+        <TextView
+            android:id="@+id/productStrikePriceTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="statt"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/productPrice" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/strikePriceGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:constraint_referenced_ids="productStrikePriceTitle,productStrikePrice" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>

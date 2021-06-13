@@ -7,14 +7,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.GridLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
-import ir.alizeyn.products.R
 import ir.alizeyn.products.core.ext.gone
 import ir.alizeyn.products.core.ext.visible
 import ir.alizeyn.products.core.state.StateData
 import ir.alizeyn.products.databinding.FragmentProductsBinding
 
+const val PRODUCTS_SPAN_COUNT: Int = 2
 
 @AndroidEntryPoint
 class ProductsFragment : Fragment() {
@@ -23,26 +23,24 @@ class ProductsFragment : Fragment() {
     private val binding: FragmentProductsBinding get() = _binding!!
 
     private val viewModel: ProductsViewModel by viewModels()
+    private val adapter: ProductAdapter by lazy { ProductAdapter() }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentProductsBinding.inflate(inflater, container, false)
-        binding.root.setOnClickListener {
-            findNavController().navigate(R.id.action_productsFragment_to_detailFragment)
-        }
+        setupRecyclerView()
 
-        viewModel.products.observe(viewLifecycleOwner, {
-            when (it) {
+        viewModel.products.observe(viewLifecycleOwner, { productStateData ->
+            when (productStateData) {
                 is StateData.Loading -> {
                     binding.loadingGroup.visible()
                 }
                 is StateData.Success -> {
                     binding.loadingGroup.gone()
-                    Log.i("TAG", "SUCCESS")
-                    it.data?.forEach {
-                        Log.i("TAG", "onCreateView: ${it.title}")
+                    productStateData.data?.let {
+                        adapter.updateData(it)
                     }
                 }
                 is StateData.Error -> {
@@ -56,5 +54,11 @@ class ProductsFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    private fun setupRecyclerView() {
+        binding.productsRecyclerView.adapter = adapter
+        binding.productsRecyclerView.layoutManager =
+            GridLayoutManager(requireContext(), PRODUCTS_SPAN_COUNT)
     }
 }

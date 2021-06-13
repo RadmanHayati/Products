@@ -2,12 +2,13 @@
 <resources>
     <dimen name="minMargin">4dp</dimen>
     <dimen name="standardMargin">8dp</dimen>
-    <dimen name="MaxMargin">16dp</dimen>
+    <dimen name="maxMargin">16dp</dimen>
 
     <dimen name="minPadding">4dp</dimen>
     <dimen name="standardPadding">8dp</dimen>
-    <dimen name="MaxPadding">16dp</dimen>
+    <dimen name="maxPadding">16dp</dimen>
 
     <dimen name="standardCardElevation">8dp</dimen>
     <dimen name="standardCardRadius">8dp</dimen>
+    <dimen name="maxCardRadius">16dp</dimen>
 </resources>
