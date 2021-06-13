@@ -14,7 +14,7 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-abstract class ProductModule {
+abstract class  ProductModule {
 
     @Binds
     abstract fun productMapper(mapper: ProductMapper): Mapper<NetworkProduct, Product>
