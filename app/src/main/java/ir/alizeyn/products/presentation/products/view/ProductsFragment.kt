@@ -14,6 +14,7 @@ import ir.alizeyn.products.core.ext.visible
 import ir.alizeyn.products.core.state.StateData
 import ir.alizeyn.products.databinding.FragmentProductsBinding
 import ir.alizeyn.products.presentation.products.viewmodel.ProductsViewModel
+import jp.wasabeef.recyclerview.adapters.AlphaInAnimationAdapter
 
 const val PRODUCTS_SPAN_COUNT: Int = 2
 
@@ -58,7 +59,9 @@ class ProductsFragment : Fragment() {
     }
 
     private fun setupRecyclerView() {
-        binding.productsRecyclerView.adapter = adapter
+        binding.productsRecyclerView.adapter = AlphaInAnimationAdapter(adapter).apply {
+            setDuration(ADAPTER_ANIMATOR_DURATION)
+        }
         binding.productsRecyclerView.layoutManager =
             GridLayoutManager(requireContext(), PRODUCTS_SPAN_COUNT)
     }

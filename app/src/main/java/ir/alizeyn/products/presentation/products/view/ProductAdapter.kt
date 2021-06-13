@@ -6,10 +6,13 @@ import android.view.ViewGroup
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
+import ir.alizeyn.products.R
 import ir.alizeyn.products.core.ext.invisible
 import ir.alizeyn.products.core.ext.visible
 import ir.alizeyn.products.databinding.ItemProductBinding
 import ir.alizeyn.products.presentation.products.model.ProductUiModel
+
+const val ADAPTER_ANIMATOR_DURATION: Int = 500
 
 class ProductAdapter : RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() {
 
@@ -37,7 +40,6 @@ class ProductAdapter : RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() 
 
         fun bind(product: ProductUiModel) {
             binding.productTitle.text = product.title
-            //todo fix formatting
             binding.productPrice.text = product.price
             binding.productStrikePrice.invisible()
             product.strikePrice?.let {
@@ -45,7 +47,10 @@ class ProductAdapter : RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() 
                 binding.productStrikePrice.text = it
             }
             Log.i("TAG", "bind: imageUrl is ${product.imageUrl}")
-            binding.productImageView.load(product.imageUrl.replace("http", "https"))
+            binding.productImageView.load(product.imageUrl.replace("http", "https")) {
+                placeholder(R.drawable.placeholder_product)
+                crossfade(true)
+            }
             binding.root.setOnClickListener {
                 val action = ProductsFragmentDirections.actionProductsFragmentToDetailFragment()
                 binding.root.findNavController().navigate(action)

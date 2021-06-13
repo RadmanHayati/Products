@@ -15,5 +15,5 @@
     <color name="white">#FFF</color>
     <color name="black">#000000</color>
 
-    <color name="darkProgressBar"></color>
+    <color name="darkProgressBar">#383838</color>
 </resources>
