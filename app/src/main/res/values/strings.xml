@@ -5,4 +5,5 @@
     <string name="strikePriceTitle">statt</string>
     <string name="strikePriceTools"><strike>1,25 €</strike></string>
     <string name="product_image">Product Image</string>
+    <string name="close_product_details">Close Product Details</string>
 </resources>

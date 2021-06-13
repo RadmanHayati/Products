@@ -22,6 +22,9 @@
     <dimen name="smallTextSize">12sp</dimen>
 
     <dimen name="productItemMinHeight">300dp</dimen>
+    <dimen name="smallCircleButtonSize">32dp</dimen>
+
+    <dimen name="rippleRadius">16dp</dimen>
 
     <integer name="productsColumn">2</integer>
 

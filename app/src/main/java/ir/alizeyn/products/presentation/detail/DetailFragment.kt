@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import dagger.hilt.android.AndroidEntryPoint
 import ir.alizeyn.products.core.ext.load
@@ -33,6 +34,9 @@ class DetailFragment : Fragment() {
             productTitle.text = product.title
             productDescription.text = product.description
             productPrice.text = product.price
+            close.setOnClickListener {
+                findNavController().popBackStack()
+            }
         }
         return binding.root
     }

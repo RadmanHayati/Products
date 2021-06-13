@@ -18,6 +18,20 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:src="@drawable/tools_apfel" />
 
+    <ImageButton
+        android:id="@+id/close"
+        android:layout_width="@dimen/smallCircleButtonSize"
+        android:layout_height="@dimen/smallCircleButtonSize"
+        android:layout_marginStart="@dimen/maxMargin"
+        android:layout_marginTop="@dimen/maxMargin"
+        android:background="@null"
+        android:contentDescription="@string/close_product_details"
+        android:foreground="@drawable/ripple_circle"
+        android:src="@drawable/ic_close"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="UnusedAttribute" />
+
     <TextView
         android:id="@+id/productTitle"
         android:layout_width="0dp"

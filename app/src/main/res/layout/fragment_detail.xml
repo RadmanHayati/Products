@@ -99,6 +99,19 @@
             android:orientation="vertical"
             app:layout_constraintGuide_end="@dimen/xlargeMargin" />
 
+        <ImageButton
+            android:id="@+id/close"
+            android:layout_width="@dimen/smallCircleButtonSize"
+            android:layout_height="@dimen/smallCircleButtonSize"
+            android:layout_marginTop="16dp"
+            android:background="@null"
+            android:contentDescription="@string/close_product_details"
+            android:foreground="@drawable/ripple_circle"
+            android:src="@drawable/ic_close"
+            app:layout_constraintEnd_toStartOf="@+id/endGuideline"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="UnusedAttribute" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>
