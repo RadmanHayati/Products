@@ -54,7 +54,8 @@ class ProductAdapter : RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() 
                     crossfade(true)
                 }
                 root.setOnClickListener {
-                    val action = ProductsFragmentDirections.actionProductsFragmentToDetailFragment()
+                    val action =
+                        ProductsFragmentDirections.actionProductsFragmentToDetailFragment(product)
                     binding.root.findNavController().navigate(action)
                 }
             }
