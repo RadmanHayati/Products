@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
+import ir.alizeyn.products.R
 import ir.alizeyn.products.core.ext.gone
 import ir.alizeyn.products.core.ext.visible
 import ir.alizeyn.products.core.state.StateData
@@ -16,7 +17,6 @@ import ir.alizeyn.products.databinding.FragmentProductsBinding
 import ir.alizeyn.products.presentation.products.viewmodel.ProductsViewModel
 import jp.wasabeef.recyclerview.adapters.AlphaInAnimationAdapter
 
-const val PRODUCTS_SPAN_COUNT = 2
 
 @AndroidEntryPoint
 class ProductsFragment : Fragment() {
@@ -63,6 +63,6 @@ class ProductsFragment : Fragment() {
             setDuration(ADAPTER_ANIMATOR_DURATION)
         }
         binding.productsRecyclerView.layoutManager =
-            GridLayoutManager(requireContext(), PRODUCTS_SPAN_COUNT)
+            GridLayoutManager(requireContext(), resources.getInteger(R.integer.productsColumn))
     }
 }

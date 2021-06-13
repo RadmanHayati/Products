@@ -8,7 +8,7 @@ import ir.alizeyn.products.core.ext.*
 import ir.alizeyn.products.databinding.ItemProductBinding
 import ir.alizeyn.products.presentation.products.model.ProductUiModel
 
-const val ADAPTER_ANIMATOR_DURATION: Int = 500
+const val ADAPTER_ANIMATOR_DURATION = 500
 
 class ProductAdapter : RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() {
 
