@@ -2,13 +2,13 @@ package ir.alizeyn.products.presentation.products.viewmodel
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.google.common.truth.Truth
-import ir.alizeyn.products.CoroutineTestRule
 import ir.alizeyn.products.core.state.StateData
 import ir.alizeyn.products.data.network.product.repo.ProductsRepository
 import ir.alizeyn.products.domain.product.model.Product
-import ir.alizeyn.products.observeLimit
 import ir.alizeyn.products.presentation.products.mapper.ProductUiMapper
 import ir.alizeyn.products.presentation.products.model.ProductUiModel
+import ir.alizeyn.products.utils.CoroutineTestRule
+import ir.alizeyn.products.utils.observeLimit
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.runBlocking
 import org.junit.Before

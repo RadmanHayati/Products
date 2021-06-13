@@ -1,4 +1,4 @@
-package ir.alizeyn.products
+package ir.alizeyn.products.utils
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
