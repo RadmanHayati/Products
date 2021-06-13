@@ -42,7 +42,7 @@ class ProductAdapter : RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() 
             binding.productStrikePrice.invisible()
             product.strikePrice?.let {
                 binding.productStrikePrice.visible()
-                binding.productStrikePrice.text = it.toString()
+                binding.productStrikePrice.text = it
             }
             Log.i("TAG", "bind: imageUrl is ${product.imageUrl}")
             binding.productImageView.load(product.imageUrl.replace("http", "https"))

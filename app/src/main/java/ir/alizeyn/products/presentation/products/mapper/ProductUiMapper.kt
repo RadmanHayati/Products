@@ -6,18 +6,17 @@ import android.text.style.StrikethroughSpan
 import ir.alizeyn.products.data.network.common.Mapper
 import ir.alizeyn.products.domain.product.model.Product
 import ir.alizeyn.products.presentation.products.model.ProductUiModel
+import java.math.BigDecimal
 import javax.inject.Inject
 
 class ProductUiMapper @Inject constructor() : Mapper<Product, ProductUiModel> {
 
     override fun map(input: Product): ProductUiModel {
 
-        val price = "${input.price} €"
-
-        val prePrice = "statt"
+        val prePrice = "statt "
         val strikePrice: SpannableString? = input.strikePrice?.let {
-            val strikePriceString = "$prePrice $it €"
-            SpannableString(strikePriceString)
+            val formattedStrikePrice = "$prePrice${getCurrencyFormattedPrice(it)}"
+            SpannableString(formattedStrikePrice)
         }?.apply {
             setSpan(
                 StrikethroughSpan(),
@@ -31,9 +30,13 @@ class ProductUiMapper @Inject constructor() : Mapper<Product, ProductUiModel> {
             input.id,
             input.title,
             input.imageUrl,
-            price,
+            getCurrencyFormattedPrice(input.price),
             strikePrice,
             input.description
         )
+    }
+
+    private fun getCurrencyFormattedPrice(price: BigDecimal): String {
+        return "$price €".replace(".", ",")
     }
 }

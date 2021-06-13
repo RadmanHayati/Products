@@ -7,4 +7,9 @@
         <!-- Customize your theme here. -->
         <item name="android:forceDarkAllowed" tools:targetApi="q">false</item>
     </style>
+
+    <style name="ProgressBarStyle">
+        <item name="colorAccent">@color/darkProgressBar</item>
+    </style>
+
 </resources>

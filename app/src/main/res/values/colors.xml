@@ -1,8 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorAccent">#FFE934</color>
-    <color name="colorPrimaryDark">#383500</color>
+    <color name="colorPrimaryDark">#959595</color>
     <color name="colorPrimary">#6234BA</color>
+
+    <color name="textLight">#959595</color>
+    <color name="textNormal">#6A6A6A</color>
+    <color name="textHeading2">#434343</color>
+    <color name="textHeading1">#363636</color>
+    <color name="textDark">#383838</color>
+
+    <color name="background">#F0F0F0</color>
+
     <color name="white">#FFF</color>
     <color name="black">#000000</color>
+
+    <color name="darkProgressBar"></color>
 </resources>
