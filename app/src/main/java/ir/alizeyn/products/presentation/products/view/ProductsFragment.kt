@@ -35,7 +35,6 @@ class ProductsFragment : Fragment() {
         setupRecyclerView()
 
         viewModel.products.observe(viewLifecycleOwner, { productStateData ->
-            Log.i("TAG", "onCreateView: Products data emitted")
             when (productStateData) {
                 is StateData.Loading -> {
                     binding.loadingGroup.visible()
@@ -44,7 +43,6 @@ class ProductsFragment : Fragment() {
                     binding.loadingGroup.gone()
                     productStateData.data?.let {
                         adapter.updateData(it)
-                        binding.productsRecyclerView.scheduleLayoutAnimation()
                     }
                 }
                 is StateData.Error -> {

@@ -21,14 +21,13 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:srcCompat="@drawable/tools_apfel" />
+            tools:srcCompat="@drawable/placeholder_product" />
 
         <TextView
             android:id="@+id/productTitle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/maxMargin"
-            android:layout_marginTop="@dimen/maxMargin"
             android:layout_marginEnd="@dimen/maxMargin"
             android:textColor="@color/textHeading2"
             android:textSize="@dimen/largeTextSize"
@@ -46,12 +45,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/maxMargin"
-            android:layout_marginTop="@dimen/standardMargin"
+            android:layout_marginTop="@dimen/maxMargin"
             android:textColor="@color/textDark"
             android:textSize="@dimen/normalTextSize"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/productTitle"
             tools:text="2,49 €" />
@@ -60,13 +58,12 @@
             android:id="@+id/productStrikePriceTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:paddingEnd="@dimen/slimPadding"
+            android:layout_marginStart="@dimen/standardMargin"
             android:text="@string/strikePriceTitle"
             android:textColor="@color/textLight"
             android:textSize="@dimen/smallTextSize"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/productPrice"
             app:layout_constraintStart_toEndOf="@+id/productPrice"
             tools:ignore="RtlSymmetry" />
 
@@ -74,10 +71,11 @@
             android:id="@+id/productStrikePrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/slimMargin"
             android:textColor="@color/textLight"
             android:textSize="@dimen/smallTextSize"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/productPrice"
             app:layout_constraintStart_toEndOf="@+id/productStrikePriceTitle"
             tools:text="@string/strikePriceTools" />
 

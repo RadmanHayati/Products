@@ -4,11 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import coil.load
-import ir.alizeyn.products.R
-import ir.alizeyn.products.core.ext.invisible
-import ir.alizeyn.products.core.ext.strike
-import ir.alizeyn.products.core.ext.visible
+import ir.alizeyn.products.core.ext.*
 import ir.alizeyn.products.databinding.ItemProductBinding
 import ir.alizeyn.products.presentation.products.model.ProductUiModel
 
@@ -49,10 +45,8 @@ class ProductAdapter : RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() 
                     productStrikePrice.strike()
                 }
                 //todo fix http scheme
-                productImageView.load(product.imageUrl.replace("http", "https")) {
-                    placeholder(R.drawable.placeholder_product)
-                    crossfade(true)
-                }
+                val imageUrl = product.imageUrl.replace("http", "https")
+                productImageView.load(imageUrl)
                 root.setOnClickListener {
                     val action =
                         ProductsFragmentDirections.actionProductsFragmentToDetailFragment(product)

@@ -6,9 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
-import coil.load
 import dagger.hilt.android.AndroidEntryPoint
-import ir.alizeyn.products.R
+import ir.alizeyn.products.core.ext.load
 import ir.alizeyn.products.databinding.FragmentDetailBinding
 
 
@@ -29,10 +28,8 @@ class DetailFragment : Fragment() {
 
         binding.apply {
             //todo fix hardcode network scheme
-            productImage.load(product.imageUrl.replace("http", "https")) {
-                placeholder(R.drawable.placeholder_product)
-                crossfade(true)
-            }
+            val imageUrl = product.imageUrl.replace("http", "https")
+            productImage.load(imageUrl)
             productTitle.text = product.title
             productDescription.text = product.description
             productPrice.text = product.price
