@@ -9,7 +9,7 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="200dp"
+        android:layout_width="@dimen/networkErrorImageSize"
         android:layout_height="200dp"
         android:contentDescription="@string/network_error"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -34,7 +34,7 @@
         android:id="@+id/retry"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="@dimen/xlargeMargin"
         android:text="@string/retry"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
