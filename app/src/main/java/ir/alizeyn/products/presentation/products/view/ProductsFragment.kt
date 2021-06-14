@@ -29,7 +29,9 @@ class ProductsFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel.getProducts()
+        if (savedInstanceState == null) {
+            viewModel.getProducts()
+        }
     }
 
     override fun onCreateView(
