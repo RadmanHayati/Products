@@ -4,19 +4,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/maxPadding">
+    android:background="@color/background">
 
-    <ImageView
-        android:id="@+id/productImage"
+    <LinearLayout
+        android:id="@+id/productImageContainer"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:adjustViewBounds="true"
-        android:contentDescription="@string/product_image"
-        android:scaleType="fitCenter"
+        android:background="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:src="@drawable/tools_apfel" />
+        app:layout_constraintTop_toTopOf="parent">
+        <ImageView
+            android:id="@+id/productImage"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/product_image"
+            tools:src="@drawable/tools_apfel" />
+    </LinearLayout>
+
 
     <ImageButton
         android:id="@+id/close"
@@ -36,13 +42,14 @@
         android:id="@+id/productTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/maxMargin"
         android:layout_marginTop="@dimen/xlargeMargin"
         android:layout_marginEnd="@dimen/xlargeMargin"
         android:textColor="@color/textHeading1"
         android:textSize="@dimen/xxlargeTextSize"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/productImage"
+        app:layout_constraintStart_toEndOf="@+id/productImageContainer"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Apfel Elstar aus Österreich" />
 
@@ -50,11 +57,12 @@
         android:id="@+id/productPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/maxMargin"
         android:layout_marginTop="@dimen/maxMargin"
         android:textColor="@color/textDark"
         android:textSize="@dimen/largeTextSize"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/productImage"
+        app:layout_constraintStart_toEndOf="@+id/productImageContainer"
         app:layout_constraintTop_toBottomOf="@+id/productTitle"
         tools:text="2,49 €" />
 
@@ -89,15 +97,17 @@
         android:layout_marginTop="@dimen/xlargeMargin"
         android:overScrollMode="never"
         android:scrollbars="vertical"
+        android:layout_marginBottom="@dimen/standardMargin"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/productImage"
+        app:layout_constraintStart_toEndOf="@+id/productImageContainer"
         app:layout_constraintTop_toBottomOf="@+id/productPrice">
 
         <TextView
             android:id="@+id/productDescription"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/maxMargin"
             android:layout_marginEnd="@dimen/xlargeMargin"
             android:scrollbars="vertical"
             android:textColor="@color/textNormal"
