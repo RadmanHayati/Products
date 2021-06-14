@@ -28,9 +28,6 @@ class ProductsViewModel @Inject constructor(
     val products: LiveData<StateData<List<ProductUiModel>>>
         get() = _products
 
-    init {
-        getProducts()
-    }
 
     fun getProducts() = viewModelScope.launch {
 

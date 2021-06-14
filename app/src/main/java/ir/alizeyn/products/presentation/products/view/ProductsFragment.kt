@@ -27,6 +27,11 @@ class ProductsFragment : Fragment() {
     private val viewModel: ProductsViewModel by viewModels()
     private val adapter: ProductAdapter by lazy { ProductAdapter() }
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        viewModel.getProducts()
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

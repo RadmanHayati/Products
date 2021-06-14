@@ -46,7 +46,6 @@ class TestProductsViewModel {
     fun setup() {
         MockitoAnnotations.openMocks(this)
         `when`(mapper.map(product)).thenReturn(uiProduct)
-        `when`(repository.getProducts()).thenReturn(flowOf(listOf()))
         viewModel = ProductsViewModel(repository, mapper)
     }
 
@@ -54,20 +53,22 @@ class TestProductsViewModel {
     fun loadProductsWithSuccess() = runBlocking {
 
         `when`(repository.getProducts()).thenReturn(flowOf(listOf(product)))
-        viewModel.getProducts()
         viewModel.products.observeLimit({
+            Truth.assertThat(it is StateData.Loading).isTrue()
+        }, {
             Truth.assertThat(it is StateData.Success).isTrue()
         })
+        val data = viewModel.getProducts()
     }
 
     @Test
     fun loadProductsWithError() = runBlocking {
 
-        val msg = "Network Error"
-        `when`(repository.getProducts()).thenThrow(RuntimeException(msg))
-        viewModel.getProducts()
+        `when`(repository.getProducts()).thenThrow(RuntimeException())
+        val viewModel = ProductsViewModel(repository, mapper)
         viewModel.products.observeLimit({
             Truth.assertThat(it is StateData.Error).isTrue()
         })
+        val data = viewModel.getProducts()
     }
 }
