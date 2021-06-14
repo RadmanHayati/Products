@@ -6,4 +6,7 @@
     <string name="strikePriceTools"><strike>1,25 €</strike></string>
     <string name="product_image">Product Image</string>
     <string name="close_product_details">Close Product Details</string>
+
+    <string name="network_error">No Internet!</string>
+    <string name="retry">Retry</string>
 </resources>

@@ -1,7 +1,6 @@
 package ir.alizeyn.products.presentation.products.view
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,6 +13,7 @@ import ir.alizeyn.products.core.ext.gone
 import ir.alizeyn.products.core.ext.visible
 import ir.alizeyn.products.core.state.StateData
 import ir.alizeyn.products.databinding.FragmentProductsBinding
+import ir.alizeyn.products.presentation.network.NetworkErrorDialog
 import ir.alizeyn.products.presentation.products.viewmodel.ProductsViewModel
 import jp.wasabeef.recyclerview.adapters.AlphaInAnimationAdapter
 
@@ -41,6 +41,12 @@ class ProductsFragment : Fragment() {
         _binding = FragmentProductsBinding.inflate(inflater, container, false)
         setupRecyclerView()
 
+        val networkErrorDialog = NetworkErrorDialog(
+            requireContext()
+        ) {
+            viewModel.getProducts()
+        }
+
         viewModel.products.observe(viewLifecycleOwner, { productStateData ->
             when (productStateData) {
                 is StateData.Loading -> {
@@ -51,9 +57,16 @@ class ProductsFragment : Fragment() {
                     productStateData.data?.let {
                         adapter.updateData(it)
                     }
+                    if (networkErrorDialog.isShowing) {
+                        networkErrorDialog.dismiss()
+                    }
                 }
                 is StateData.Error -> {
-                    Log.i("TAG", "ERROR")
+                    if (networkErrorDialog.isShowing) {
+                        networkErrorDialog.showIdleState()
+                    } else {
+                        networkErrorDialog.show()
+                    }
                 }
             }
         })
